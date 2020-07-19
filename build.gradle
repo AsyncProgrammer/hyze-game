@@ -11,6 +11,8 @@ repositories {
     jcenter()
 }
 
+
+
 dependencies {
     implementation("com.google.guava:guava:29.0-jre")
 
@@ -40,7 +42,10 @@ dependencies {
 
     compile files('libs/demorpg.jar')
     implementation "org.jetbrains.kotlin:kotlin-script-runtime:1.3.72"
+    // Koin for Kotlin
+    implementation "org.koin:koin-core:2.1.6"
 }
+
 
 compileKotlin {
     kotlinOptions.jvmTarget = "1.8"
