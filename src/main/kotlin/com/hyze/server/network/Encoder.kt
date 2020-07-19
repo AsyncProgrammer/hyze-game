@@ -17,7 +17,7 @@ package com.hyze.server.network
  * DESCRIPTION
  *
  * @author Async
- * @date 19/07/2020 at 03:08
+ * @date 19/07/2020 at 03:10
  */
-interface Packet {
+class Encoder {
 }
