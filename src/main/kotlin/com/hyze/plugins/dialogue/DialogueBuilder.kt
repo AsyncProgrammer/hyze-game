@@ -1,20 +1,41 @@
-package com.hyze.plugins
+/*
+ * RUNESCAPE PRIVATE SERVER FRAMEWORK
+ *
+ * This file is part of the Hyze Server
+ *
+ * Hyze is a private RuneScape server focused primarily on
+ * in the Brazilian community. The project has only 1 developer
+ *
+ * Objective of the project is to bring the best content, performance ever seen
+ * by brazilians players in relation to private RuneScape servers (RSPS).
+ */
+
+package com.hyze.plugins.dialogue
 
 import com.google.common.collect.Maps
-import com.hyze.plugins.dialogue.DialoguePlugin
-import com.hyze.plugins.dialogue.DialogueType
-import com.hyze.plugins.dialogue.Expression
-import com.hyze.plugins.dialogue.Message
+import com.hyze.plugins.Plugin
 import com.hyze.plugins.dialogue.message.NPCMessageDialogue
 import com.hyze.plugins.dialogue.message.OptionMessageDialogue
 import com.hyze.plugins.dialogue.message.PlayerMessageDialogue
 import com.rs.game.player.Player
 
+/**
+ * Dialogue builder
+ * @author var_5
+ */
+
 class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
+
+    /**
+     * Primary dialogue stage
+     */
 
     var stage = 1
 
+    /** Default options title*/
     private val DEFAULT_OPTION_TITLE = "Selecione uma opção"
+
+    /** Default npc expression*/
     private val DEFAULT_EXPRESSION = Expression.HAPPY
 
 
@@ -104,7 +125,13 @@ class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
      */
 
     fun npc(message: String){
-        construct(NPCMessageDialogue(Expression.HAPPY, npcId, message))
+        construct(
+            NPCMessageDialogue(
+                Expression.HAPPY,
+                npcId,
+                message
+            )
+        )
     }
 
     /**
@@ -124,7 +151,12 @@ class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
      */
 
     fun options(function: () -> Unit){
-        construct(OptionMessageDialogue(DEFAULT_OPTION_TITLE, arrayListOf()))
+        construct(
+            OptionMessageDialogue(
+                DEFAULT_OPTION_TITLE,
+                arrayListOf()
+            )
+        )
         function.invoke()
     }
 

@@ -1,10 +1,11 @@
 package com.hyze.plugins.dialogue.impl
 
-import com.hyze.plugins.DialogueBuilder
+import com.hyze.plugins.dialogue.DialogueBuilder
+import com.hyze.plugins.dialogue.DialogueManifest
 import com.hyze.plugins.dialogue.DialoguePlugin
-import com.rs.game.npc.NPC
 import com.rs.game.player.Player
 
+@DialogueManifest(npcNames = ["Hans", "Banker"], objectNames = ["Bank"])
 class Banker : DialoguePlugin(){
 
     override fun build(player: Player, npcId: Int): DialogueBuilder = player.createDialogue(npcId) {

@@ -1,6 +1,5 @@
 package com.hyze.plugins.dialogue
 
-import com.hyze.plugins.DialogueBuilder
 import com.hyze.plugins.dialogue.message.OptionMessageDialogue
 import com.rs.game.player.Player
 
@@ -8,9 +7,17 @@ class DialogueManager(val player: Player) {
 
     private var lastDialogue: DialogueBuilder? = null
 
+    /**
+     * Sends player to the next dialogue stage
+     */
+
     fun next(){
         lastDialogue?.callNextMessage()
     }
+
+    /**
+     * Start a player dialogue
+     */
 
     fun start(dialogueBuilder: DialoguePlugin, npcId: Int) {
          if(lastDialogue != null){
@@ -23,9 +30,17 @@ class DialogueManager(val player: Player) {
         plugin.callMessage()
     }
 
+    /**
+     * Handle a dialogue click option
+     */
+
     fun clickAction(option: OptionMessageDialogue.Option) {
         lastDialogue?.callNextMessage(option)
     }
+
+    /**
+     * Finish a dialogue
+     */
 
     fun finish() {
         if(lastDialogue == null) return

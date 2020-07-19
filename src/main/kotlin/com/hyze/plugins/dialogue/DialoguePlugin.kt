@@ -12,21 +12,24 @@
 
 package com.hyze.plugins.dialogue
 
-import com.hyze.plugins.DialogueBuilder
 import com.rs.game.player.Player
 
 
 /**
- * DESCRIPTION
+ * Dialogue plugin building
  *
  * @author Async
  * @date 18/07/2020 at 22:31
  */
 abstract class DialoguePlugin {
 
+    /**
+     * Builds a new dialogue
+     */
+
     abstract fun build(player: Player, npcId: Int) : DialogueBuilder
 
-    inline fun Player.createDialogue(npcId: Int, init: DialogueBuilder.() -> Unit): DialogueBuilder{
+    inline fun Player.createDialogue(npcId: Int, init: DialogueBuilder.() -> Unit): DialogueBuilder {
         val dialoguePlugin = DialogueBuilder(this)
         dialoguePlugin.npcId = npcId
         dialoguePlugin.init()
