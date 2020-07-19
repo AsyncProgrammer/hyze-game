@@ -22,4 +22,4 @@ package com.hyze.plugins.dialogue
 
 @Retention(AnnotationRetention.RUNTIME)
 @Target(AnnotationTarget.CLASS)
-annotation class DialogueManifest(val npcNames: Array<out String>, val objectNames: Array<out String>)
+annotation class DialogueManifest(val npcNames: Array<out String>, val objectNames: Array<out String> = [])

@@ -36,4 +36,10 @@ abstract class DialoguePlugin {
         return dialoguePlugin
     }
 
+    inline fun Player.createDialogue(init: DialogueBuilder.() -> Unit): DialogueBuilder {
+        val dialoguePlugin = DialogueBuilder(this)
+        dialoguePlugin.init()
+        return dialoguePlugin
+    }
+
 }

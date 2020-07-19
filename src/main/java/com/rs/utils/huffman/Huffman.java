@@ -3,6 +3,7 @@ package com.rs.utils.huffman;
 import com.rs.cache.Cache;
 import com.rs.io.InputStream;
 import com.rs.io.OutputStream;
+import com.rs.utils.StringUtilities;
 import com.rs.utils.Utils;
 
 public final class Huffman {
@@ -71,6 +72,114 @@ public final class Huffman {
 			}
 		}
 	}
+
+        public static final String decodeString(int maxlength, InputStream stream) {
+                try {
+                        int strlen = stream.readUnsignedSmart();
+                        if (strlen > maxlength)
+                                strlen = maxlength;
+                        byte[] strbuff = new byte[strlen];
+                        stream.skip(huffmanDecode(stream.getBuffer(), stream.getOffset(), strbuff, 0, strlen));
+                        String message = StringUtilities.decodeString(strbuff, 0, strlen);
+                        return message;
+                } catch (Throwable e) {
+                        return "";
+                }
+        }
+
+        private static final int huffmanDecode(byte[] buff, int buffoffset, byte[] strbuff, int strbuffoffset, int strbufflength) {
+                if ((strbufflength ^ 0xffffffff) == -1)
+                        return 0;
+                int i = 0;
+                strbufflength += strbuffoffset;
+                int i_1_ = buffoffset;
+                for (;;) {
+                        byte i_2_ = buff[i_1_];
+                        if ((i_2_ ^ 0xffffffff) <= -1)
+                                i++;
+                        else
+                                i = huffmanAlgorithm3[i];
+                        int i_3_;
+                        if ((i_3_ = huffmanAlgorithm3[i]) < 0) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbufflength <= strbuffoffset)
+                                        break;
+                                i = 0;
+                        }
+                        if ((i_2_ & 0x40 ^ 0xffffffff) == -1)
+                                i++;
+                        else
+                                i = huffmanAlgorithm3[i];
+                        if (((i_3_ = huffmanAlgorithm3[i]) ^ 0xffffffff) > -1) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbufflength <= strbuffoffset)
+                                        break;
+                                i = 0;
+                        }
+                        if ((0x20 & i_2_ ^ 0xffffffff) != -1)
+                                i = huffmanAlgorithm3[i];
+                        else
+                                i++;
+                        if ((i_3_ = huffmanAlgorithm3[i]) < 0) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbufflength <= strbuffoffset)
+                                        break;
+                                i = 0;
+                        }
+                        if ((0x10 & i_2_ ^ 0xffffffff) != -1)
+                                i = huffmanAlgorithm3[i];
+                        else
+                                i++;
+                        if ((i_3_ = huffmanAlgorithm3[i]) < 0) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if ((strbuffoffset ^ 0xffffffff) <= (strbufflength ^ 0xffffffff))
+                                        break;
+                                i = 0;
+                        }
+                        if ((i_2_ & 0x8) == 0)
+                                i++;
+                        else
+                                i = huffmanAlgorithm3[i];
+                        if ((i_3_ = huffmanAlgorithm3[i]) < 0) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbuffoffset >= strbufflength)
+                                        break;
+                                i = 0;
+                        }
+                        if ((0x4 & i_2_ ^ 0xffffffff) != -1)
+                                i = huffmanAlgorithm3[i];
+                        else
+                                i++;
+                        if (((i_3_ = huffmanAlgorithm3[i]) ^ 0xffffffff) > -1) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbuffoffset >= strbufflength)
+                                        break;
+                                i = 0;
+                        }
+                        if ((0x2 & i_2_) != 0)
+                                i = huffmanAlgorithm3[i];
+                        else
+                                i++;
+                        if (((i_3_ = huffmanAlgorithm3[i]) ^ 0xffffffff) > -1) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if (strbufflength <= strbuffoffset)
+                                        break;
+                                i = 0;
+                        }
+                        if ((0x1 & i_2_ ^ 0xffffffff) != -1)
+                                i = huffmanAlgorithm3[i];
+                        else
+                                i++;
+                        if ((i_3_ = huffmanAlgorithm3[i]) < 0) {
+                                strbuff[strbuffoffset++] = (byte) (i_3_ ^ 0xffffffff);
+                                if ((strbuffoffset ^ 0xffffffff) <= (strbufflength ^ 0xffffffff))
+                                        break;
+                                i = 0;
+                        }
+                        i_1_++;
+                }
+                return -buffoffset + i_1_ - -1;
+        }
 
 	public static final int decryptMessage(byte[] messageData,
 			int messagedDataLength, byte[] streamBuffer, int streamOffset,

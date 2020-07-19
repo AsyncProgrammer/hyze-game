@@ -5,7 +5,7 @@ import com.hyze.plugins.dialogue.DialogueManifest
 import com.hyze.plugins.dialogue.DialoguePlugin
 import com.rs.game.player.Player
 
-@DialogueManifest(npcNames = ["Hans", "Banker"], objectNames = ["Bank"])
+@DialogueManifest(npcNames = ["Hans", "Banker"])
 class Banker : DialoguePlugin(){
 
     override fun build(player: Player, npcId: Int): DialogueBuilder = player.createDialogue(npcId) {
@@ -22,7 +22,7 @@ class Banker : DialoguePlugin(){
                 }
                 option("O que é esse lugar?"){
                     npc("Isso é uma filial do Banco de Guilenor. Nós possuimos filiais em algumas cidades também.")
-                    options{
+                    options("Título teste"){
                         option("E o que você faz?"){
                             npc("Eu cuido dos seus itens e dinheiro para você. Deixe seus objetos de valor conosco se quiser mantê-los seguros.")
                         }

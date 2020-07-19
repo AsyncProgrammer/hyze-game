@@ -22,8 +22,8 @@ import com.rs.io.InputStream
  * @author Async
  * @date 19/07/2020 at 03:09
  */
-interface IPacket<P> {
+interface IPacket {
 
-    fun <T> decode(stream: InputStream, player: Player): T
+    fun decode(stream: InputStream, player: Player): Boolean
 
 }

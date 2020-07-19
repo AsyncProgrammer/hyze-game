@@ -16,6 +16,7 @@ import com.google.common.collect.Maps
 import com.hyze.plugins.Plugin
 import com.hyze.plugins.dialogue.message.NPCMessageDialogue
 import com.hyze.plugins.dialogue.message.OptionMessageDialogue
+import com.hyze.plugins.dialogue.message.PlainMessage
 import com.hyze.plugins.dialogue.message.PlayerMessageDialogue
 import com.rs.game.player.Player
 
@@ -177,6 +178,10 @@ class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
                 }
     }
 
+    fun plain(message: String){
+        construct(PlainMessage(message))
+    }
+
     /**
      * Display and call a message
      */
@@ -233,6 +238,10 @@ class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
 
     fun message(message: String, expression: Expression){
         construct(PlayerMessageDialogue(message, expression))
+    }
+
+    infix fun Player.message(message: String){
+        sendMessage(message)
     }
 
     /**
