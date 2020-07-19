@@ -1,0 +1,66 @@
+1		3222	3817	0	0	true	crate
+1		3221	3817	0	0	true	crate
+1		3220	3817	0	0	true	crate
+1		3219	3817	0	0	true	crate
+1		3218	3817	0	0	true	crate
+1		3217	3817	0	0	true	crate
+1		3216	3817	0	0	true	crate
+1		3215	3817	0	0	true	crate
+1		3214	3817	0	0	true	crate
+1		3213	3817	0	0	true	crate
+1		3212	3817	0	0	true	crate
+1		3211	3817	0	0	true	crate
+1		3222	3818	0	0	true	crate
+1		3222	3819	0	0	true	crate
+49766	89		721		2	0	true	novite ore
+49768	88		721		2	0	true	bathus ore
+49770	87		721		2	0	true	marmaros ore
+49772	86		721		2	0	true	kratonite ore
+49774	85		721		2	0	true	fractite ore
+29945	2862	3551	0	0	true	small obelisk
+2783	1603	4512	0	-4	true	anvil
+47120	2651	2653	0	-1	true	altar of zaros
+-1		3671	2976	0	0	true	null
+2478	2600	3155	0	-2	true	altar
+2479	2597	3155	0	-2	true	altar
+2480	2594	3157	0	-2	true	altar
+2481	2594	3160	0	-2	true	altar
+2482	2594	3163	0	-2	true	altar
+2483	2594	3166	0	-2	true	altar
+2484	2603	3157	0	-2	true	altar
+2485	2600	3168	0	-2	true	altar
+2486	2603	3166	0	-2	true	altar
+2487	2603	3160	0	-2	true	altar
+2488	2597	3168	0	-2	true	altar
+2489	2513	3169	0	-2	true	gate
+22819	3641	5135	0	0	true	bank booth
+782		3165	3224	0	0	true	bank booth
+40487	3241	3350	0	0	true	null
+40487	3240	3350	0	0	true	null
+40487	3239	3350	0	0	true	null
+40487	3238	3350	0	0	true	null
+40487	3237	3350	0	0	true	null
+40487	3236	3350	0	0	true	null
+40443	3240	3353	0	1	true	trade wagon
+40444	3235	3356	0	3	true	log pile
+22819	3241	3357	0	0	true	bank booth
+36586	2925	3599	0	0	true	bandages table
+1		1174	6500	0	0	true	crate
+1		1174	6499	0	0	true	crate
+1		1174	6498	0	0	true	crate
+13704	3039	3281	0	3	true	workbench
+34752	2977	3290	0	0	true	bank booth
+34752	2976	3290	0	0	true	bank booth
+34752	2975	3290	0	0	true	bank booth
+34752	2974	3290	0	0	true	bank booth
+75868	2982	3286	0	0	true	ornate chest
+2783	2983	3294	0	0	true	anvil
+2783	2983	3298	0	0	true	anvil
+2783	2985	3298	0	0	true	anvil
+2783	2985	3294	0	0	true	anvil
+29945	2973	3290	0	0	true	small obelisk
+55301	2969	3285	0	1	true	clan cup plaque
+13704	2960	3278	0	0	true	workbench
+70764	2992	3294	0	0	true	fire
+409		2971	3287	0	2	true	altar
+26814	2980	3295	0	0	true	furnace
