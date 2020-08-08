@@ -69,7 +69,7 @@ public class EventManager implements Runnable {
 	 * Initialise the event manager.
 	 */
 	private EventManager() {
-		events = new ArrayList<EventContainer>();
+		events = new ArrayList<>();
 	}
 
 	/**

@@ -623,6 +623,9 @@ public class Region {
 		int mapArchiveId = Cache.STORE.getIndexes()[5].getArchiveId("m" + ((regionX >> 3) / 8) + "_" + ((regionY >> 3) / 8));
 		byte[] mapContainerData = mapArchiveId == -1 ? null : Cache.STORE.getIndexes()[5].getFile(mapArchiveId, 0);
 		byte[][][] mapSettings = mapContainerData == null ? null : new byte[4][64][64];
+
+            System.out.println("Arquivo do mapa: " + mapArchiveId);
+
 		if (mapContainerData != null) {
 			InputStream mapStream = new InputStream(mapContainerData);
 			for (int plane = 0; plane < 4; plane++) {
@@ -868,7 +871,7 @@ public class Region {
 
 	public void addObject(WorldObject object) {
 		if (spawnedObjects == null)
-			spawnedObjects = new CopyOnWriteArrayList<WorldObject>();
+			spawnedObjects = new CopyOnWriteArrayList<>();
 		spawnedObjects.add(object);
 	}
 

@@ -1016,12 +1016,12 @@ public class Player extends Entity {
 	public void checkMultiArea() {
 		if (!started)
 			return;
-		boolean isAtMultiArea = isForceMultiArea() ? true : World.isMultiArea(this);
+		boolean isAtMultiArea = isForceMultiArea() || World.isMultiArea(this);
 		if (isAtMultiArea && !isAtMultiArea()) {
-			setAtMultiArea(isAtMultiArea);
+			setAtMultiArea(true);
 			getPackets().sendGlobalConfig(616, 1);
 		} else if (!isAtMultiArea && isAtMultiArea()) {
-			setAtMultiArea(isAtMultiArea);
+			setAtMultiArea(false);
 			getPackets().sendGlobalConfig(616, 0);
 		}
 	}

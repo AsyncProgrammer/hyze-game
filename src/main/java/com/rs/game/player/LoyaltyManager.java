@@ -8,6 +8,7 @@ import com.rs.game.World;
 public class LoyaltyManager {
 
 	private static final int INTERFACE_ID = 1143;
+
 	private transient Player player;
 
 	public LoyaltyManager(Player player) {

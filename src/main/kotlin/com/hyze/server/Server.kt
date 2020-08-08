@@ -13,6 +13,7 @@
 package com.hyze.server
 
 import com.guardian.ItemManager
+import com.hyze.plugins.dialogue.DialogueBuilder
 import com.rs.cache.Cache
 import com.rs.cache.loaders.ItemsEquipIds
 import com.rs.cores.CoresManager
@@ -27,6 +28,8 @@ import com.rs.game.player.dialogues.DialogueHandler
 import com.rs.utils.*
 import com.rs.utils.huffman.Huffman
 import com.rs.utils.spawning.ObjectSpawning
+import org.koin.core.context.startKoin
+import org.koin.dsl.module
 
 
 /**
