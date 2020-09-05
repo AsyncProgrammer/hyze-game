@@ -12,8 +12,8 @@
 
 package com.hyze.plugins.dialogue.impl
 
+import com.hyze.plugins.dialogue.DialogueBuilder
 import com.hyze.plugins.dialogue.DialoguePlugin
-import com.hyze.plugins.dialogue.Expression
 import com.rs.game.player.Player
 
 
@@ -21,12 +21,11 @@ import com.rs.game.player.Player
  * DESCRIPTION
  *
  * @author var_5
- * @date 05/09/2020 at 17:37
+ * @date 05/09/2020 at 17:52
  */
-class RemoveLater: DialoguePlugin() {
+class Test: DialoguePlugin() {
 
     override fun build(player: Player, npcId: Int) = player.createDialogue {
-        npc("O que você quer?!", Expression.ANGRY)
+        npc("Isso é um testeeeeee")
     }
-
 }
