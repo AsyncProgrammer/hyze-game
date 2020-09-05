@@ -14,7 +14,7 @@ package com.hyze.server.network.packets
 
 
 /**
- * DESCRIPTION
+ * Packet object
  *
  * @author Async
  * @date 19/07/2020 at 03:08
