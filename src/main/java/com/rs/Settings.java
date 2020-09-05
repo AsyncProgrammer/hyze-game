@@ -10,7 +10,7 @@ public final class Settings {
 	public static final String SERVER_NAME = "Hyze";
 	public static int PORT_ID = 43594;
 	
-	public static final String[] OWNERS = { "king_fox" };
+	public static final String[] OWNERS = { "Async" };
 	public static boolean ZOMBIE_ENABLED = true;
 	
 	public static final WorldTile START_PLAYER_LOCATION = new WorldTile(2973, 3287, 0);
@@ -31,7 +31,7 @@ public final class Settings {
 	public static boolean ENABLE_BUTTON_DEBUG = false;
 	public static boolean ENABLE_PACKET_DEBUG = false;
 	
-	public static final String CACHE_PATH = "D:\\RuneScape Private Server\\cache\\";
+	public static final String CACHE_PATH = "D:\\. RuneScape\\cache\\";
 	public static final int RECEIVE_DATA_LIMIT = 7500;
 	public static final int PACKET_SIZE_LIMIT = 7500;
 	

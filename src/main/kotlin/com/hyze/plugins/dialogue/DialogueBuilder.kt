@@ -19,13 +19,14 @@ import com.hyze.plugins.dialogue.message.OptionMessageDialogue
 import com.hyze.plugins.dialogue.message.PlainMessage
 import com.hyze.plugins.dialogue.message.PlayerMessageDialogue
 import com.rs.game.player.Player
+import kotlinx.coroutines.coroutineScope
 
 /**
  * Dialogue builder
  * @author var_5
  */
 
-class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
+class DialogueBuilder(val player: Player) : Plugin<DialoguePlugin> {
 
     /**
      * Primary dialogue stage
@@ -109,7 +110,7 @@ class DialogueBuilder(var player: Player) : Plugin<DialoguePlugin> {
 
     fun redirect(stage: Int){
         this.stage = stage
-        callMessage()
+        messageMap[stage]?.display(player)
     }
 
     /**

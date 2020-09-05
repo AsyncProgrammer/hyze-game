@@ -12,13 +12,9 @@
 
 package com.hyze
 
-import com.hyze.events.EventManager
 import com.hyze.server.Server
 import com.hyze.utils.Logger
-import com.rs.game.player.LoyaltyManager
 import com.rs.net.ServerChannelHandler
-import org.koin.core.context.startKoin
-import org.koin.dsl.module
 
 
 /**
@@ -35,24 +31,13 @@ object Engine {
         val start = System.currentTimeMillis()
         Logger.warn("Starting server!")
         Logger.warn("Setuping dependencies injection")
-        setupKoin()
         Server().start()
+
         Logger.warn("Starting server networking...")
         ServerChannelHandler.init()
-
         val end = System.currentTimeMillis()
+
         Logger.debug("Server took ${end - start}ms to start")
-    }
-
-    fun setupKoin(){
-        startKoin {
-            printLogger()
-            modules(eventModules)
-        }
-    }
-
-    val eventModules = module {
-        single { EventManager() }
     }
 
 }

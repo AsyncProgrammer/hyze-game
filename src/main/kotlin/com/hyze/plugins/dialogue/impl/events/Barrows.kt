@@ -28,7 +28,7 @@ class Barrows: DialoguePlugin() {
 
     private val BARROWS_TILE = WorldTile(3534, 9677, 0)
 
-    override fun build(player: Player, npcId: Int) = player.createDialogue(){
+    override fun build(player: Player, npcId: Int) = player.createDialogue {
             plain("Você encontrou um túnel escondido, você deseja entrar?")
             options {
                 option("Sim, eu sou destemido"){

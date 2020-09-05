@@ -19,5 +19,4 @@ package com.hyze.plugins
  * @author Async
  * @date 17/07/2020 at 18:30
  */
-interface Plugin<T> {
-}
+interface Plugin<T>

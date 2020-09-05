@@ -19,5 +19,4 @@ package com.hyze.server.network
  * @author Async
  * @date 19/07/2020 at 03:10
  */
-class Encoder {
-}
+class Encoder

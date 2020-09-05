@@ -2,6 +2,9 @@ package com.hyze.plugins.dialogue
 
 import com.hyze.plugins.dialogue.message.OptionMessageDialogue
 import com.rs.game.player.Player
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.runBlocking
+import kotlinx.coroutines.withContext
 
 class DialogueManager(val player: Player) {
 
@@ -20,16 +23,15 @@ class DialogueManager(val player: Player) {
      */
 
     fun start(dialogueBuilder: DialoguePlugin, npcId: Int) {
-         if(lastDialogue != null){
-             finish()
-         }
+            if (lastDialogue != null) {
+                finish()
+            }
 
-        val plugin = dialogueBuilder.build(player, npcId)
-        lastDialogue = plugin
+            val plugin = dialogueBuilder.build(player, npcId)
+            lastDialogue = plugin
 
-        plugin.callMessage()
+            plugin.callMessage()
     }
-
     /**
      * Handle a dialogue click option
      */
@@ -50,5 +52,6 @@ class DialogueManager(val player: Player) {
             player.interfaceManager.closeChatBoxInterface()
         }
     }
+
 
 }

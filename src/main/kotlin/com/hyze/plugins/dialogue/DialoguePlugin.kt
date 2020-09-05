@@ -23,6 +23,8 @@ import com.rs.game.player.Player
  */
 abstract class DialoguePlugin {
 
+
+
     /**
      * Builds a new dialogue
      */

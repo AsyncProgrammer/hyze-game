@@ -19,5 +19,5 @@ package com.hyze.events
  * @author var_5
  * @date 08/08/2020 at 14:35
  */
-class EventExecutor {
-}
+abstract class EventExecutor{ abstract fun execute() }
+

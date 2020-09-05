@@ -3,6 +3,7 @@ package com.hyze.plugins.dialogue.impl
 import com.hyze.plugins.dialogue.DialogueBuilder
 import com.hyze.plugins.dialogue.DialogueManifest
 import com.hyze.plugins.dialogue.DialoguePlugin
+import com.hyze.plugins.dialogue.Expression
 import com.rs.game.player.Player
 
 @DialogueManifest(npcNames = ["Hans", "Banker"])
@@ -10,7 +11,7 @@ class Banker : DialoguePlugin(){
 
     override fun build(player: Player, npcId: Int): DialogueBuilder = player.createDialogue(npcId) {
             npc("Bom dia, como posso lhe ajudar?")
-            options("O que você gostaria de falar?") {
+            options("O que você gostaria de falar?"){
                 option("Eu gostaria de acessar minha conta do banco, por favor"){
                     player.bank.openBank()
                 }
@@ -22,7 +23,7 @@ class Banker : DialoguePlugin(){
                 }
                 option("O que é esse lugar?"){
                     npc("Isso é uma filial do Banco de Guilenor. Nós possuimos filiais em algumas cidades também.")
-                    options("Título teste"){
+                    options{
                         option("E o que você faz?"){
                             npc("Eu cuido dos seus itens e dinheiro para você. Deixe seus objetos de valor conosco se quiser mantê-los seguros.")
                         }
@@ -32,7 +33,6 @@ class Banker : DialoguePlugin(){
                     }
                 }
             }
-
     }
 
 }

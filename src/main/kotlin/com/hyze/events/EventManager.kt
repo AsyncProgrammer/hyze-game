@@ -15,6 +15,7 @@ package com.hyze.events
 import com.google.common.collect.Maps
 import java.util.*
 import java.util.concurrent.ConcurrentMap
+import kotlin.reflect.KClass
 
 
 /**
@@ -25,19 +26,10 @@ import java.util.concurrent.ConcurrentMap
  */
 class EventManager {
 
-    val eventRegistry: ConcurrentMap<String, Class<out Event>> = Maps.newConcurrentMap()
-
-    fun registerEvent(name: String, event: Event){
-        eventRegistry.putIfAbsent(name, event::class.java)
-    }
-
-    fun registerEvent(event: Event){
-        eventRegistry.putIfAbsent(event::class.java.simpleName, event::class.java)
-    }
+    val eventRegistry: ConcurrentMap<KClass<out Event>, EventExecutor> = Maps.newConcurrentMap()
 
     fun callEvent(event: Event){
-        eventRegistry.get(event::class.java.simpleName).run {
-        }
+        eventRegistry[event::class]?.execute()
     }
 
 }
