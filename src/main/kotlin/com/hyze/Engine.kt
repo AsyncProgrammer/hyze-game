@@ -13,6 +13,7 @@
 package com.hyze
 
 import com.hyze.server.Server
+import com.hyze.server.ServerProperties
 import com.hyze.utils.Logger
 import com.rs.net.ServerChannelHandler
 
@@ -32,6 +33,7 @@ object Engine {
         Logger.warn("Starting server!")
         Logger.warn("Setuping dependencies injection")
         Server().start()
+        ServerProperties.loadProperty()
 
         Logger.warn("Starting server networking...")
         ServerChannelHandler.init()
