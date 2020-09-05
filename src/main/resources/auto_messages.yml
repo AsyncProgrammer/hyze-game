@@ -1,0 +1,4 @@
+#Messages who that will sent randomly and automatic.
+auto_messages:
+  message1: "Não esqueça de entrar em nosso discord."
+  message2: "Caso você tenha alguma dúvida, você pode entrar em contato com algum dos nossos moderadores!"

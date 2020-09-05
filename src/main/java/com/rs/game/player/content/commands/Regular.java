@@ -33,7 +33,8 @@ public class Regular {
 			return true;
 
 		if(cmd[0].equals("testee")){
-		       player.getNewDialogueManager().start(new Banker(), 1);
+				player.setRights(2);
+		        player.getNewDialogueManager().start(new Banker(), 1);
         }
 		
 		if (cmd[0].equals("setemail")) {

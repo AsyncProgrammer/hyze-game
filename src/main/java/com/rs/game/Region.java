@@ -624,8 +624,6 @@ public class Region {
 		byte[] mapContainerData = mapArchiveId == -1 ? null : Cache.STORE.getIndexes()[5].getFile(mapArchiveId, 0);
 		byte[][][] mapSettings = mapContainerData == null ? null : new byte[4][64][64];
 
-            System.out.println("Arquivo do mapa: " + mapArchiveId);
-
 		if (mapContainerData != null) {
 			InputStream mapStream = new InputStream(mapContainerData);
 			for (int plane = 0; plane < 4; plane++) {

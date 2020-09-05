@@ -90,15 +90,14 @@ public final class World {
 	}
 	
 	public static Player findOnlinePlayer(String name) {
-		Player plr = getPlayerByDisplayName(name);
-		return plr;
+            return getPlayerByDisplayName(name);
 	}
 	
 	public static boolean isOnline(String name) {
-		return getPlayerByDisplayName(name) != null ? true : false;
+		return getPlayerByDisplayName(name) != null;
 	}
 	
-	public static final void init() {
+	public static void init() {
 		addRestoreRunEnergyTask();
 		addDrainPrayerTask();
 		addRestoreHitPointsTask();
