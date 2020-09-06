@@ -12,13 +12,12 @@
 
 package com.hyze.server.network.encoders
 
-import com.hyze.server.network.Session
 
-
-/**
+ /**
  * DESCRIPTION
  *
  * @author var_5
- * @date 06/09/2020 at 16:31
+ * @date 06/09/2020 at 19:05
  */
-abstract class Encoder(val session: Session)
+class WorldPacketsEncoder {
+}
