@@ -7,8 +7,11 @@ object Settings {
 
     val REVISION = ServerProperties.getProperty("revision").toInt()
     val SUB_REVISION = ServerProperties.getProperty("sub_revision").toInt()
-    val SERVER_IP = ServerProperties.getProperty("server_adress").toInt()
-    val PORT = ServerProperties.getProperty("port").toInt()
+    val SERVER_IP = ServerProperties.getProperty("server_adress")
+    var PORT_ID = ServerProperties.getProperty("port").toInt()
+
+    const val RECEIVE_DATA_LIMIT = 7500
+    const val PACKET_SIZE_LIMIT = 7500
 
     const val DEBUG = true
 
@@ -22,6 +25,7 @@ object Settings {
     val MODULUS = BigInteger(
             "102876637271116124732338500663639643113504464789339249490399312659674772039314875904176809267475033772367707882873773291786014475222178654932442254125731622781524413208523465520758537060408541610254619166907142593731337618490879831401461945679478046811438574041131738117063340726565226753787565780501845348613")
 
+    val MAP_SIZES = intArrayOf(104, 120, 136, 168, 72)
     const val GRAB_SERVER_TOKEN = "hAJWGrsaETglRjuwxMwnlA/d5W6EgYWx"
     val GRAB_SERVER_KEYS = intArrayOf(1441, 78700, 44880, 39771,
             363186, 44375, 0, 16140, 7316, 271148, 810710, 216189, 379672,
