@@ -22,8 +22,8 @@ import kotlin.reflect.KClass
  * @author var_5
  * @date 05/09/2020 at 13:14
  */
-enum class PacketConstants(val clazz: KClass<out IPacket>, vararg sizes: Int) {
+enum class PacketConstants(val clazz: Class<out IPacket>, val sizes: IntArray) {
 
-    WALKING_PACKET(WalkingPacket::class, 8, 58)
+    WALKING_PACKET(WalkingPacket::class.java, intArrayOf(5, 58))
 
 }
