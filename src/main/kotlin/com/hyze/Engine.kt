@@ -14,8 +14,9 @@ package com.hyze
 
 import com.hyze.server.Server
 import com.hyze.server.ServerProperties
+import com.hyze.server.network.ServerChannelHandler
 import com.hyze.utils.Logger
-import com.rs.net.ServerChannelHandler
+import com.hyze.utils.Settings
 
 
 /**
@@ -36,7 +37,8 @@ object Engine {
         ServerProperties.loadProperty()
 
         Logger.warn("Starting server networking...")
-        ServerChannelHandler.init()
+        println(Settings.PORT_ID)
+        ServerChannelHandler()
         val end = System.currentTimeMillis()
 
         Logger.debug("Server took ${end - start}ms to start")
