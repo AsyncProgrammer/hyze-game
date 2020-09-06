@@ -16,7 +16,6 @@ import com.hyze.server.network.packets.IPacket
 import com.rs.game.player.Player
 import com.rs.io.InputStream
 import com.rs.utils.Utils
-import com.rs.utils.huffman.Huffman
 
 
 /**
@@ -27,19 +26,24 @@ import com.rs.utils.huffman.Huffman
  */
 class WalkingPacket: IPacket {
 
-    override fun decode(stream: InputStream, player: Player): Boolean {
-        if(player.lastPublicMessage > Utils.currentTimeMillis()) return true
+    override fun decode(stream: InputStream, player: Player) {
+        if (!player.hasStarted() || !player.clientHasLoadedMapRegion() || player.isDead)return
+        val currentTime = Utils.currentTimeMillis()
+        if (player.lockDelay > currentTime) return
+        if (player.freezeDelay >= currentTime) {
+            player.packets.sendGameMessage("A magical force prevents you from moving.")
+            return
+        }
+        val length = stream.length
+        val baseX = stream.readUnsignedShort128()
+        val forceRun = stream.readUnsigned128Byte() == 1
+        val baseY = stream.readUnsignedShort128()
+        var steps = (length - 5) / 2
+        if (steps > 25) steps = 25
+        player.stopAll()
 
-        val colorEffect = stream.readUnsignedByte()
-        val moveEffect = stream.readUnsignedByte()
-
-        var message: String? = Huffman.decodeString(200, stream) ?: return true
-
-
-
-
-
-
-        return false
+        if (forceRun) player.run = forceRun
+        for (step in 0 until steps) if (!player.addWalkSteps(baseX + stream.readUnsignedByte(),
+                        baseY + stream.readUnsignedByte(), 25, true)) break
     }
 }

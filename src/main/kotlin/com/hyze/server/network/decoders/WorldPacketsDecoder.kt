@@ -12,13 +12,12 @@
 
 package com.hyze.server.network.decoders
 
+import com.hyze.server.network.Session
 import com.hyze.server.network.packets.PacketConstants
 import com.hyze.utils.Logger
 import com.hyze.utils.Settings
-import com.rs.game.player.LogicPacket
 import com.rs.game.player.Player
 import com.rs.io.InputStream
-import com.rs.net.Session
 import com.rs.utils.Utils
 
 
@@ -74,8 +73,6 @@ class WorldPacketsDecoder(session: Session, val player: Player): Decoder(session
             val startOffset = stream.offset
 
             stream.offset = startOffset - packetLength
-
-
         }
     }
 

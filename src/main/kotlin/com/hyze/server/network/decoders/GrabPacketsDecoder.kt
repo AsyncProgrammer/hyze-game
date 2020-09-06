@@ -12,9 +12,9 @@
 
 package com.hyze.server.network.decoders
 
+import com.hyze.server.network.Session
 import com.rs.cache.Cache
 import com.rs.io.InputStream
-import com.rs.net.Session
 
 
 /**
@@ -58,5 +58,6 @@ class GrabPacketsDecoder(session: Session): Decoder(session) {
         }
         session.grabPackets.sendCacheArchive(indexId, archiveId, priority)
     }
+
 
 }

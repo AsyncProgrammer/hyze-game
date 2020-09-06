@@ -12,9 +12,9 @@
 
 package com.hyze.server.network.decoders
 
+import com.hyze.server.network.Session
 import com.hyze.utils.Settings
 import com.rs.io.InputStream
-import com.rs.net.Session
 
 
 /**
@@ -66,7 +66,7 @@ class ClientPacketsDecoder(session: Session) : Decoder(session) {
         }
         session.setDecoder(2)
         session.setEncoder(1)
-        session.loginPackets.sendStartUpPacket()
+        session.loginPackets.sendStartupPacket()
     }
 
 }

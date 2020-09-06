@@ -12,13 +12,13 @@
 
 package com.hyze.server.network.decoders
 
+import com.hyze.server.network.Session
 import com.hyze.utils.Logger
 import com.hyze.utils.Settings
 import com.rs.cache.Cache
 import com.rs.game.World
 import com.rs.game.player.Player
 import com.rs.io.InputStream
-import com.rs.net.Session
 import com.rs.net.sfs.CheckIP
 import com.rs.utils.*
 import org.xml.sax.SAXException
@@ -159,7 +159,7 @@ class LoginPacketsDecoder(session: Session): Decoder(session) {
 
             if (com.rs.Settings.enableSfs) {
                 try {
-                    if (!CheckIP.isGoodIp(session.ip)) {
+                    if (!CheckIP.isGoodIp(session.channelIp)) {
                         session.loginPackets.sendClientPacket(20)
                         return
                     }
@@ -185,7 +185,7 @@ class LoginPacketsDecoder(session: Session): Decoder(session) {
                 return
             }
 
-            if (AntiFlood.getSessionsIP(session.ip) > com.rs.Settings.LOGIN_LIMIT) {
+            if (AntiFlood.getSessionsIP(session.channelIp) > com.rs.Settings.LOGIN_LIMIT) {
                 session.loginPackets.sendClientPacket(9)
                 return
             }

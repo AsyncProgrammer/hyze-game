@@ -24,6 +24,6 @@ import com.rs.io.InputStream
  */
 interface IPacket {
 
-    fun decode(stream: InputStream, player: Player): Boolean
+    fun decode(stream: InputStream, player: Player)
 
 }

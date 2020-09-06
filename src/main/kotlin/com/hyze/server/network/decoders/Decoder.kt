@@ -12,8 +12,8 @@
 
 package com.hyze.server.network.decoders
 
+import com.hyze.server.network.Session
 import com.rs.io.InputStream
-import com.rs.net.Session
 
 
 /**

@@ -12,11 +12,11 @@
 
 package com.hyze.server.network
 
+import com.hyze.server.network.decoders.WorldPacketsDecoder
 import com.hyze.utils.Settings
 import com.rs.cores.CoresManager
 import com.rs.io.InputStream
 import com.rs.net.Session
-import com.rs.net.decoders.WorldPacketsDecoder
 import org.jboss.netty.bootstrap.ServerBootstrap
 import org.jboss.netty.buffer.ChannelBuffer
 import org.jboss.netty.channel.ChannelHandlerContext
